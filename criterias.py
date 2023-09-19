@@ -51,6 +51,14 @@ def getBayesOptimal(projects):
         project.bayes_optimal = True
     return bayes_effective
 
+def getLaplasOptimal(projects):
+    laplas_dict = dict.fromkeys(projects)
+    for project in laplas_dict:
+        laplas_dict[project] = sum(project.states)/len(project.states)
+    laplas_effective = [k for k, v in laplas_dict.items() if v == max(laplas_dict.values())]
+    for project in laplas_effective:
+        project.laplas_optimal = True
+    return laplas_effective
 
 
 

@@ -24,8 +24,8 @@ if __name__ == '__main__':
     print(*map(lambda x: x.name, getGurvitzOptimal(projects)), sep=",")
     print("Байес-эффективные решения: ", end='')
     print(*map(lambda x: x.name, getBayesOptimal(projects)), sep=",")
+    print("Лаплас-эффективные решения: ", end='')
+    print(*map(lambda x: x.name, getLaplasOptimal(projects)), sep=",")
 
 
-    for project in projects:
-        print(project.numOptimalCriteria())
 
