@@ -60,7 +60,12 @@ def getLaplasOptimal(projects):
         project.laplas_optimal = True
     return laplas_effective
 
-
+def getBest(projects):
+    best_dict = dict.fromkeys(projects)
+    for project in best_dict:
+        best_dict[project] = project.numOptimalCriteria()
+    best = [k for k, v in best_dict.items() if v == max(best_dict.values())]
+    return best
 
 
 
