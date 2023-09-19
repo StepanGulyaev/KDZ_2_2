@@ -17,9 +17,11 @@ projects.extend([x1,x2,x3,x4,x5,x6,x7,x8])
 if __name__ == '__main__':
     draw_projects_table(projects)
     print("Вальд-эффективные решения: ",end='')
-    print(*map(lambda x: x.name,getWaldEffective(projects)), sep=",")
+    print(*map(lambda x: x.name, getWaldEffective(projects)), sep=",")
     print("Сэвидж-эффективные решения: ",end='')
     print(*map(lambda x: x.name, getSavidgeOptimal(projects)), sep=",")
+    print("Гурвиц-эффективные решения: ", end='')
+    print(*map(lambda x: x.name, getGurvitzOptimal(projects)), sep=",")
 
 
     for project in projects:
