@@ -1,6 +1,7 @@
 import copy
 
 gurvitz_coef = 0.6
+bayes_coef = [0.1, 0.4, 0.4, 0.1]
 
 def getWaldEffective(projects):
     mins = dict.fromkeys(projects)
@@ -38,6 +39,17 @@ def getGurvitzOptimal(projects):
     for project in gurvitz_effective:
         project.gurvitz_optimal = True
     return gurvitz_effective
+
+def getBayesOptimal(projects):
+    bayes_dict = dict.fromkeys(projects)
+    for project in bayes_dict:
+        bayes_dict[project] = 0
+        for i in range(len(project.states)):
+            bayes_dict[project] += project.states[i] * bayes_coef[i]
+    bayes_effective = [k for k, v in bayes_dict.items() if v == max(bayes_dict.values())]
+    for project in bayes_effective:
+        project.bayes_optimal = True
+    return bayes_effective
 
 
 

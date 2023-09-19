@@ -22,6 +22,8 @@ if __name__ == '__main__':
     print(*map(lambda x: x.name, getSavidgeOptimal(projects)), sep=",")
     print("Гурвиц-эффективные решения: ", end='')
     print(*map(lambda x: x.name, getGurvitzOptimal(projects)), sep=",")
+    print("Байес-эффективные решения: ", end='')
+    print(*map(lambda x: x.name, getBayesOptimal(projects)), sep=",")
 
 
     for project in projects:
