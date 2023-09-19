@@ -22,6 +22,6 @@ if __name__ == '__main__':
     print(*map(lambda x: x.name, getSavidgeOptimal(projects)), sep=",")
 
 
-    #for project in projects:
-        #print(project.numOptimalCriteria())
+    for project in projects:
+        print(project.numOptimalCriteria())
 

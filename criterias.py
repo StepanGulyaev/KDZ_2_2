@@ -1,6 +1,6 @@
 import copy
 
-from project import Project
+gurvitz_coef = 0,6
 
 def getWaldEffective(projects):
     mins = dict.fromkeys(projects)
@@ -23,9 +23,19 @@ def getSavidgeOptimal(projects):
         maxes[project] = max(project.states)
     minmax = min(maxes.values())
     savidge_effective = [k for k, v in maxes.items() if v == minmax]
-    for project in savidge_effective:
-        project.savidge_optimal = True
-    return  savidge_effective
+    names = list(map(lambda x: x.name,savidge_effective))
+    orig_projects = list(map(lambda x: x if (x.name in names) else None,projects))
+    filtered = list(filter(lambda x: x is not None,orig_projects))
+    for i in range(len(filtered)):
+        filtered[i].savidge_optimal = True
+    return filtered
+
+
+
+##def getGurvitzOptimal(projects):
+
+
+
 
 
 
